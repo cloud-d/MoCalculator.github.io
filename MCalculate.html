@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Money Calculator</title>
+    <link rel="stylesheet" href="Css.css">
+  </head>
+  <body>
+    <div class="card">
+        <div class="card-image">
+            <div id="results">
+                <!-- Results will be displayed here  -->
+             </div>
+        </div>
+        <div class="category"> calculate money</div>
+    <form>
+        <div class="containerInput"> 
+      <input type="number" id="amount" name="amount" placeholder="Enter a Total base salary">
+        </div>
+      <!-- <button  class="btn" type="submit">Calculate</button> -->
+    </form>
+  
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+$(document).ready(function() {
+  $('form').submit(function(event) {
+    event.preventDefault();
+    var amount = Number($('#amount').val());
+
+    var perDay = amount / 365;
+    var perWeek = amount / 52;
+    var perMonth = amount / 12;
+    var perYear = amount;
+
+    $('#results').html(`
+      <p>Per day: ${perDay.toFixed(2)}</p>
+      <p>Per week: ${perWeek.toFixed(2)}</p>
+      <p>Per month: ${perMonth.toFixed(2)}</p>
+      <p>Per year: ${perYear.toFixed(2)}</p>
+    `);
+  });
+});
+    </script>
+  </body>
+</html>
